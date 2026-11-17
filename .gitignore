@@ -1,0 +1,15 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# build
+.build/*
+.build-tests/*
+
+# Intellij
+.idea/*
+
+# Mac
+.DS_Store
+# test output
+tests/denoised.wav
