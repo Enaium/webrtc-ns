@@ -5,6 +5,14 @@ A standalone extraction of the WebRTC noise suppressor
 shared library with a small public API. The project layout and pixi/CMake
 workflow follow the [aec3](../aec3) extraction.
 
+## Upstream
+
+- WebRTC revision: `c25c6676c6d09bd3161e1cf73d3b362c8875e8d0` (2026-11-18).
+- `modules/audio_processing/ns` is byte-identical to that revision apart from
+  include paths; there were no upstream NS changes to pull in.
+- The band-splitting support (`splitting_filter`, `three_band_filter_bank` and
+  the float QMF) was refreshed to the same revision.
+
 ## What is included
 
 - `src/audio_processing/ns/` — the complete NS module: 256-point FFT,
@@ -18,9 +26,10 @@ workflow follow the [aec3](../aec3) extraction.
 - `src/api/noise_suppression.h` — a self-contained API that does not require
   callers to construct WebRTC's internal `AudioBuffer`.
 
-The DSP code is unchanged WebRTC code; only include paths were adapted to the
-flat extraction layout (`modules/audio_processing/...` →
-`audio_processing/...`).
+The NS DSP code is unchanged WebRTC code; only include paths were adapted to
+the flat extraction layout (`modules/audio_processing/...` →
+`audio_processing/...`). The surrounding standalone support code follows the
+same upstream revision where its API allows it.
 
 ## Build
 

@@ -12,10 +12,9 @@
 #define MODULES_AUDIO_PROCESSING_SPLITTING_FILTER_H_
 
 #include <cstring>
-#include <memory>
 #include <vector>
 
-#include "channel_buffer.h"
+#include "audio_processing/channel_buffer.h"
 #include "audio_processing/three_band_filter_bank.h"
 
 namespace webrtc {
@@ -29,10 +28,10 @@ struct TwoBandsStates {
   }
 
   static const int kStateSize = 6;
-  int analysis_state1[kStateSize];
-  int analysis_state2[kStateSize];
-  int synthesis_state1[kStateSize];
-  int synthesis_state2[kStateSize];
+  float analysis_state1[kStateSize];
+  float analysis_state2[kStateSize];
+  float synthesis_state1[kStateSize];
+  float synthesis_state2[kStateSize];
 };
 
 // Splitting filter which is able to split into and merge from 2 or 3 frequency
@@ -64,7 +63,7 @@ class SplittingFilter {
 
   const size_t num_bands_;
   std::vector<TwoBandsStates> two_bands_states_;
-  std::vector<std::unique_ptr<ThreeBandFilterBank>> three_band_filter_banks_;
+  std::vector<ThreeBandFilterBank> three_band_filter_banks_;
 };
 
 }  // namespace webrtc

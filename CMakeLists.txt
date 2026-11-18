@@ -50,7 +50,6 @@ target_include_directories(${PROJECT} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/audio_processing
     ${CMAKE_CURRENT_SOURCE_DIR}/src/audio_processing/include
     ${CMAKE_CURRENT_SOURCE_DIR}/src/audio_processing/ns
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/audio_processing/utility
     ${CMAKE_CURRENT_SOURCE_DIR}/src/audio_processing/resampler
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common_audio
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common_audio/third_party/ooura/fft_size_256
